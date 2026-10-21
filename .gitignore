@@ -1,1 +1,48 @@
-target/
+# ==========================================
+# Compilación de Java / Maven (Basura local)
+# ==========================================
+/target/
+/build/
+/dist/
+*.class
+*.jar
+*.war
+*.ear
+
+# ==========================================
+# Configuración privada de NetBeans
+# ==========================================
+/nbproject/private/
+/nbproject/project.properties.old
+/nbproject/project.xml.old
+/nbproject/xml_binding_build.xml
+
+# ==========================================
+# Archivos del sistema operativo (Windows)
+# ==========================================
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+[Dd]esktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msm
+*.msp
+*.lnk
+
+# ==========================================
+# Archivos del sistema operativo (Linux)
+# ==========================================
+*~
+.trash/
+.directory
+
+# ==========================================
+# Editores y IDEs alternativos
+# ==========================================
+.vscode/
+.idea/
+*.iml
+*.nbattrs
