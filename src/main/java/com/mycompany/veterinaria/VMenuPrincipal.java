@@ -15,6 +15,12 @@ public class VMenuPrincipal extends JFrame {
     private JMenu menuListarClientes; // Submenu Listar Clientes
     private JMenu menuListarVeterinarios; // Submenu Listar Clientes
     private JMenu menuVeterinarios;    // Menú Veterinarios
+    private JMenu menuVentas; //Menu Ventas
+    private JMenu menuProducto; //Menu Producto
+    private JMenu menuMascotas; //Menu Mascotas
+    private JMenu menuAtenciones; //Menu Atenciones
+    private JMenu menuHospitalizaciones; //Menu Hospitalizaciones
+    private JMenu menuListarHospitalizaciones; //Menu Listar Hospitalizaciones
     private JMenu menuAyuda;     // Menú Ayuda
 
     public JMenuItem salir;
@@ -26,8 +32,14 @@ public class VMenuPrincipal extends JFrame {
     public JMenuItem modificarClientes;    // Modificar Veterinarios
     public JMenuItem listarClientesIndividual;
     public JMenuItem listarVeterinariosIndividual;
-    public JMenuItem listarClientesGeneral;
     public JMenuItem listarVeterinariosGeneral;
+    public JMenuItem listarClientesGeneral;
+    public JMenuItem listarHospitalizacionesGeneral;
+    public JMenuItem ingresoHospitalizaciones;
+    public JMenuItem eliminarHospitalizaciones;
+    public JMenuItem modificarHospitalizaciones;    // Modificar Hospitalizaciones
+    public JMenuItem listarHospitalizacionesIndividual;
+    public JMenuItem listarHospitalizaciones;
     public JMenuItem acercaDe;
 
     public VMenuPrincipal() {
@@ -70,7 +82,31 @@ public class VMenuPrincipal extends JFrame {
         menuListarVeterinarios.add(listarVeterinariosIndividual);
         menuListarVeterinarios.add(listarVeterinariosGeneral);
         menuVeterinarios.add(menuListarVeterinarios);
-
+        
+        //ventas
+        menuVentas = new JMenu("Facturacion");
+        //Producto
+        menuProducto = new JMenu("Producto");
+        //Hospitalizaciones
+        menuHospitalizaciones = new JMenu("Hospitalizaciones");
+        ingresoHospitalizaciones = new JMenuItem("Ingresar");
+        eliminarHospitalizaciones = new JMenuItem("Eliminar");
+        menuListarHospitalizaciones = new JMenu("Listados");
+        modificarHospitalizaciones = new JMenuItem("Modificar");
+        listarHospitalizacionesIndividual = new JMenuItem("Individual");
+        listarHospitalizacionesGeneral = new JMenuItem("General");
+        menuHospitalizaciones.add(ingresoHospitalizaciones);
+        menuHospitalizaciones.add(eliminarHospitalizaciones);
+        menuHospitalizaciones.add(modificarHospitalizaciones);
+        menuListarHospitalizaciones.add(listarHospitalizacionesIndividual);
+        menuListarHospitalizaciones.add(listarHospitalizacionesGeneral);
+        menuHospitalizaciones.add(menuListarHospitalizaciones);
+        //Atenciones
+        menuAtenciones = new JMenu("Atenciones");
+        
+        //Mascota
+        menuMascotas = new JMenu("Mascotas");
+        
         // AYUDA
         menuAyuda = new JMenu("Ayuda");
         acercaDe = new JMenuItem("Acerca de...");
@@ -80,13 +116,18 @@ public class VMenuPrincipal extends JFrame {
         menu.add(menuArchivo);
         menu.add(menuClientes);
         menu.add(menuVeterinarios);
+        menu.add(menuVentas);
+        menu.add(menuProducto);
+        menu.add(menuAtenciones);
+        menu.add(menuHospitalizaciones);
+        menu.add(menuMascotas);
         menu.add(menuAyuda);
 
         // CONFIGURACIONES GENERALES DEL FORMULARIO
         super.setLayout(null); // SIN LAYOUT
         super.setTitle("Veterinaria POO"); // TITULO VENTANA
         super.setSize(800, 600); // TAMAÑO "MINIMIZADO"
-        super.setExtendedState(JFrame.MAXIMIZED_BOTH);
+//        super.setExtendedState(JFrame.MAXIMIZED_BOTH);
         super.setJMenuBar(menu); // BARRA DE MENU
         super.setLocationRelativeTo(null); // CENTRAR
         super.setDefaultCloseOperation(EXIT_ON_CLOSE); // CERRAR CON X
