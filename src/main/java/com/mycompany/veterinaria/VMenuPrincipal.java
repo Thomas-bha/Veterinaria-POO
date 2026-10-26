@@ -17,9 +17,12 @@ public class VMenuPrincipal extends JFrame {
     private JMenu menuVeterinarios;    // Menú Veterinarios
     private JMenu menuVentas; //Menu Ventas
     private JMenu menuProducto; //Menu Producto
-    private JMenu menuMascotas; //Menu Mascotas
+    private JMenu menuMascota; //Menu Mascotas
     private JMenu menuAtenciones; //Menu Atenciones
     private JMenu menuHospitalizaciones; //Menu Hospitalizaciones
+    private JMenu menuListarProducto; //Menu Listar Producto
+    private JMenu menuListarAtenciones; //Menu Listar Atenciones
+    private JMenu menuListarMascota; //Menu Listar Mascota
     private JMenu menuListarHospitalizaciones; //Menu Listar Hospitalizaciones
     private JMenu menuAyuda;     // Menú Ayuda
 
@@ -40,6 +43,24 @@ public class VMenuPrincipal extends JFrame {
     public JMenuItem modificarHospitalizaciones;    // Modificar Hospitalizaciones
     public JMenuItem listarHospitalizacionesIndividual;
     public JMenuItem listarHospitalizaciones;
+    public JMenuItem listarMascotaGeneral;
+    public JMenuItem ingresoMascota;
+    public JMenuItem eliminarMascota;
+    public JMenuItem modificarMascota;    // Modificar Mascota
+    public JMenuItem listarMascotaIndividual;
+    public JMenuItem listarMascota;
+    public JMenuItem listarAtencionesGeneral;
+    public JMenuItem ingresoAtenciones;
+    public JMenuItem eliminarAtenciones;
+    public JMenuItem modificarAtenciones;    // Modificar Atenciones
+    public JMenuItem listarAtencionesIndividual;
+    public JMenuItem listarAtenciones;
+    public JMenuItem listarProductoGeneral;
+    public JMenuItem ingresoProducto;
+    public JMenuItem eliminarProducto;
+    public JMenuItem modificarProducto;    // Modificar Producto
+    public JMenuItem listarProductoIndividual;
+    public JMenuItem listarProducto;
     public JMenuItem acercaDe;
 
     public VMenuPrincipal() {
@@ -87,6 +108,18 @@ public class VMenuPrincipal extends JFrame {
         menuVentas = new JMenu("Facturacion");
         //Producto
         menuProducto = new JMenu("Producto");
+        ingresoProducto = new JMenuItem("Ingresar");
+        eliminarProducto = new JMenuItem("Eliminar");
+        menuListarProducto = new JMenu("Listados");
+        modificarProducto = new JMenuItem("Modificar");
+        listarProductoIndividual = new JMenuItem("Individual");
+        listarProductoGeneral = new JMenuItem("General");
+        menuProducto.add(ingresoProducto);
+        menuProducto.add(eliminarProducto);
+        menuProducto.add(modificarProducto);
+        menuListarProducto.add(listarProductoIndividual);
+        menuListarProducto.add(listarProductoGeneral);
+        menuProducto.add(menuListarProducto);
         //Hospitalizaciones
         menuHospitalizaciones = new JMenu("Hospitalizaciones");
         ingresoHospitalizaciones = new JMenuItem("Ingresar");
@@ -103,10 +136,33 @@ public class VMenuPrincipal extends JFrame {
         menuHospitalizaciones.add(menuListarHospitalizaciones);
         //Atenciones
         menuAtenciones = new JMenu("Atenciones");
+        ingresoAtenciones = new JMenuItem("Ingresar");
+        eliminarAtenciones = new JMenuItem("Eliminar");
+        menuListarAtenciones = new JMenu("Listados");
+        modificarAtenciones = new JMenuItem("Modificar");
+        listarAtencionesIndividual = new JMenuItem("Individual");
+        listarAtencionesGeneral = new JMenuItem("General");
+        menuAtenciones.add(ingresoAtenciones);
+        menuAtenciones.add(eliminarAtenciones);
+        menuAtenciones.add(modificarAtenciones);
+        menuListarAtenciones.add(listarAtencionesIndividual);
+        menuListarAtenciones.add(listarAtencionesGeneral);
+        menuAtenciones.add(menuListarAtenciones);
         
         //Mascota
-        menuMascotas = new JMenu("Mascotas");
-        
+        menuMascota = new JMenu("Mascotas");
+        ingresoMascota = new JMenuItem("Ingresar");
+        eliminarMascota = new JMenuItem("Eliminar");
+        menuListarMascota = new JMenu("Listados");
+        modificarMascota = new JMenuItem("Modificar");
+        listarMascotaIndividual = new JMenuItem("Individual");
+        listarMascotaGeneral = new JMenuItem("General");
+        menuMascota.add(ingresoMascota);
+        menuMascota.add(eliminarMascota);
+        menuMascota.add(modificarMascota);
+        menuListarMascota.add(listarMascotaIndividual);
+        menuListarMascota.add(listarMascotaGeneral);
+        menuMascota.add(menuListarMascota);
         // AYUDA
         menuAyuda = new JMenu("Ayuda");
         acercaDe = new JMenuItem("Acerca de...");
@@ -120,7 +176,7 @@ public class VMenuPrincipal extends JFrame {
         menu.add(menuProducto);
         menu.add(menuAtenciones);
         menu.add(menuHospitalizaciones);
-        menu.add(menuMascotas);
+        menu.add(menuMascota);
         menu.add(menuAyuda);
 
         // CONFIGURACIONES GENERALES DEL FORMULARIO
