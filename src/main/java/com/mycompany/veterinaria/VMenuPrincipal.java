@@ -11,33 +11,43 @@ public class VMenuPrincipal extends JFrame {
     private JMenuBar menu;       // Barra de menú
 
     private JMenu menuArchivo;   // Menú Archivo
+    
     private JMenu menuClientes;  // Menú Clientes
     private JMenu menuListarClientes; // Submenu Listar Clientes
-    private JMenu menuListarVeterinarios; // Submenu Listar Clientes
+    
     private JMenu menuVeterinarios;    // Menú Veterinarios
-    private JMenu menuVentas; //Menu Ventas
-    private JMenu menuProducto; //Menu Producto
+    private JMenu menuListarVeterinarios; // Submenu Listar Veterinarios
+    
     private JMenu menuMascota; //Menu Mascotas
-    private JMenu menuAtenciones; //Menu Atenciones
-    private JMenu menuHospitalizaciones; //Menu Hospitalizaciones
-    private JMenu menuListarProducto; //Menu Listar Producto
-    private JMenu menuListarAtenciones; //Menu Listar Atenciones
     private JMenu menuListarMascota; //Menu Listar Mascota
-    private JMenu menuListarHospitalizaciones; //Menu Listar Hospitalizaciones
+    
+    private JMenu menuProducto; //Menu Producto
+    private JMenu menuListarProducto; //Menu Listar Producto
+    
+    private JMenu menuVentas; //Menu Ventas
     private JMenu menuListarVentas; //Menu Listar Ventas
+    
+    private JMenu menuAtenciones; //Menu Atenciones
+    private JMenu menuListarAtenciones; //Menu Listar Atenciones
+    
+    private JMenu menuHospitalizaciones; //Menu Hospitalizaciones
+    private JMenu menuListarHospitalizaciones; //Menu Listar Hospitalizaciones
+    
     private JMenu menuAyuda;     // Menú Ayuda
 
     public JMenuItem salir;
     public JMenuItem ingresoClientes;
-    public JMenuItem ingresoVeterinarios;
     public JMenuItem eliminarClientes;
-    public JMenuItem eliminarVeterinarios;
-    public JMenuItem modificarVeterinarios;    // Modificar Veterinarios
     public JMenuItem modificarClientes;    // Modificar Veterinarios
     public JMenuItem listarClientesIndividual;
+    public JMenuItem listarClientesGeneral;
+    
+    public JMenuItem ingresoVeterinarios;
+    public JMenuItem eliminarVeterinarios;
+    public JMenuItem modificarVeterinarios;    // Modificar Veterinarios
     public JMenuItem listarVeterinariosIndividual;
     public JMenuItem listarVeterinariosGeneral;
-    public JMenuItem listarClientesGeneral;
+    
     public JMenuItem listarVentasGeneral;
     public JMenuItem ingresoVentas;
     public JMenuItem eliminarVentas;

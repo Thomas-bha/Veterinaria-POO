@@ -6,7 +6,7 @@ package com.mycompany.veterinaria;
 import java.util.Scanner;
 
 /**
- * * @ Thomas Loor
+ 
  */
 public class Veterinaria {
 
