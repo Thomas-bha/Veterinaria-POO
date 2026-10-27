@@ -36,6 +36,7 @@ public class VMenuPrincipal extends JFrame {
     private JMenu menuAyuda;     // Menú Ayuda
 
     public JMenuItem salir;
+    
     public JMenuItem ingresoClientes;
     public JMenuItem eliminarClientes;
     public JMenuItem modificarClientes;    // Modificar Veterinarios
@@ -54,30 +55,35 @@ public class VMenuPrincipal extends JFrame {
     public JMenuItem modificarVentas;    // Modificar Ventas
     public JMenuItem listarVentasIndividual;
     public JMenuItem listarVentas;
+    
     public JMenuItem listarHospitalizacionesGeneral;
     public JMenuItem ingresoHospitalizaciones;
     public JMenuItem eliminarHospitalizaciones;
     public JMenuItem modificarHospitalizaciones;    // Modificar Hospitalizaciones
     public JMenuItem listarHospitalizacionesIndividual;
     public JMenuItem listarHospitalizaciones;
+    
     public JMenuItem listarMascotaGeneral;
     public JMenuItem ingresoMascota;
     public JMenuItem eliminarMascota;
     public JMenuItem modificarMascota;    // Modificar Mascota
     public JMenuItem listarMascotaIndividual;
     public JMenuItem listarMascota;
+    
     public JMenuItem listarAtencionesGeneral;
     public JMenuItem ingresoAtenciones;
     public JMenuItem eliminarAtenciones;
     public JMenuItem modificarAtenciones;    // Modificar Atenciones
     public JMenuItem listarAtencionesIndividual;
     public JMenuItem listarAtenciones;
+    
     public JMenuItem listarProductoGeneral;
     public JMenuItem ingresoProducto;
     public JMenuItem eliminarProducto;
     public JMenuItem modificarProducto;    // Modificar Producto
     public JMenuItem listarProductoIndividual;
     public JMenuItem listarProducto;
+    
     public JMenuItem acercaDe;
 
     public VMenuPrincipal() {

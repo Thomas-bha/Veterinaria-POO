@@ -27,8 +27,11 @@ public class CMenuPrincipal implements ActionListener {    private VMenuPrincipa
         // MENU CLIENTES
         if (e.getSource() == vista.ingresoClientes) {
             // INSTNACIA UN MODELO
+            MCliente modeloCliente = new MCliente();
             // INSTANCIA UNA VISTA
+            VCliente vistaCliente =new VCliente();
             // INSTANCIA UN CONTROLADOR RECIBIENDO LOS DOS
+            CCliente controladorCliente =new CCliente(modeloCliente, vistaCliente);
         }
 
         if (e.getSource() == vista.eliminarClientes) {

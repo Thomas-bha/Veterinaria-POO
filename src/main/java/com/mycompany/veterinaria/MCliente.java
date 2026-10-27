@@ -16,17 +16,23 @@ public class MCliente extends MPersona {
     
     private LocalDate fechaRegistro;
 
+
+    public MCliente(){}
+    
     public MCliente(LocalDate fechaRegistro, int idPersona, String cedula, String nombre, String telefono, String correo, String direccion) {
         super(idPersona, cedula, nombre, telefono, correo, direccion);
         this.fechaRegistro = fechaRegistro;
     }
-    
-    
+
+    public LocalDate getFechaRegistro() {
+        return fechaRegistro;
+    }
+
     public void setFechaRegistro(LocalDate fechaRegistro) {
         this.fechaRegistro = fechaRegistro;
     }
 
 
     
-    
+        
 }

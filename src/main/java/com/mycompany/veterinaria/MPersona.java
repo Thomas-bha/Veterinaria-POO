@@ -23,6 +23,9 @@ public class MPersona {
         return 1;
     }
 
+    
+    public MPersona(){}
+    
     public MPersona(int idPersona, String cedula, String nombre, String telefono, String correo, String direccion) {
         this.idPersona = idPersona;
         this.cedula = cedula;
