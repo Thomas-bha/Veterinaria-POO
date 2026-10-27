@@ -24,6 +24,7 @@ public class VMenuPrincipal extends JFrame {
     private JMenu menuListarAtenciones; //Menu Listar Atenciones
     private JMenu menuListarMascota; //Menu Listar Mascota
     private JMenu menuListarHospitalizaciones; //Menu Listar Hospitalizaciones
+    private JMenu menuListarVentas; //Menu Listar Ventas
     private JMenu menuAyuda;     // Menú Ayuda
 
     public JMenuItem salir;
@@ -37,6 +38,12 @@ public class VMenuPrincipal extends JFrame {
     public JMenuItem listarVeterinariosIndividual;
     public JMenuItem listarVeterinariosGeneral;
     public JMenuItem listarClientesGeneral;
+    public JMenuItem listarVentasGeneral;
+    public JMenuItem ingresoVentas;
+    public JMenuItem eliminarVentas;
+    public JMenuItem modificarVentas;    // Modificar Ventas
+    public JMenuItem listarVentasIndividual;
+    public JMenuItem listarVentas;
     public JMenuItem listarHospitalizacionesGeneral;
     public JMenuItem ingresoHospitalizaciones;
     public JMenuItem eliminarHospitalizaciones;
@@ -105,7 +112,19 @@ public class VMenuPrincipal extends JFrame {
         menuVeterinarios.add(menuListarVeterinarios);
         
         //ventas
-        menuVentas = new JMenu("Facturacion");
+        menuVentas = new JMenu("ventas");
+        ingresoVentas= new JMenuItem("Ingresar");
+        eliminarVentas= new JMenuItem("Eliminar");
+        menuListarVentas= new JMenu("Listados");
+        modificarVentas= new JMenuItem("Modificar");
+        listarVentasIndividual = new JMenuItem("Individual");
+        listarVentasGeneral = new JMenuItem("General");
+        menuVentas.add(ingresoVentas);
+        menuVentas.add(eliminarVentas);
+        menuVentas.add(modificarVentas);
+        menuListarVentas.add(listarVentasIndividual);
+        menuListarVentas.add(listarVentasGeneral);
+        menuVentas.add(menuListarVentas);        
         //Producto
         menuProducto = new JMenu("Producto");
         ingresoProducto = new JMenuItem("Ingresar");
@@ -172,11 +191,11 @@ public class VMenuPrincipal extends JFrame {
         menu.add(menuArchivo);
         menu.add(menuClientes);
         menu.add(menuVeterinarios);
+        menu.add(menuMascota);
         menu.add(menuVentas);
         menu.add(menuProducto);
         menu.add(menuAtenciones);
         menu.add(menuHospitalizaciones);
-        menu.add(menuMascota);
         menu.add(menuAyuda);
 
         // CONFIGURACIONES GENERALES DEL FORMULARIO
