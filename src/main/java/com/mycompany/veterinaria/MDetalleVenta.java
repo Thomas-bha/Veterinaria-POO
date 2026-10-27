@@ -5,8 +5,7 @@
 package com.mycompany.veterinaria;
 
 /**
- *
- * @author thomaa
+
  */
 public class MDetalleVenta {
     

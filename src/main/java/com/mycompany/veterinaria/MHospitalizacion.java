@@ -7,8 +7,7 @@ package com.mycompany.veterinaria;
 import java.time.LocalDate;
 
 /**
- *
- * @author UPS
+
  */
 public class MHospitalizacion {
     private int idHospitalizacion;

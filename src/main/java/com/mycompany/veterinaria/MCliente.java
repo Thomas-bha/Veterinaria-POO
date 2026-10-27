@@ -7,8 +7,7 @@ package com.mycompany.veterinaria;
 import java.time.LocalDate;
 
 /**
- *
- * @author UPS
+
  */
 public class MCliente extends MPersona {
 
@@ -16,13 +15,13 @@ public class MCliente extends MPersona {
     
     private LocalDate fechaRegistro;
 
-
-    public MCliente(){}
+/*
+    public MCliente(){this.fechaRegistro = fechaRegistro;}
     
     public MCliente(LocalDate fechaRegistro, int idPersona, String cedula, String nombre, String telefono, String correo, String direccion) {
         super(idPersona, cedula, nombre, telefono, correo, direccion);
-        this.fechaRegistro = fechaRegistro;
-    }
+        
+    }*/
 
     public LocalDate getFechaRegistro() {
         return fechaRegistro;

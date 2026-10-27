@@ -5,8 +5,7 @@
 package com.mycompany.veterinaria;
 
 /**
- *
- * @author UPS
+
  */
 public class MVeterinario extends MPersona {
 

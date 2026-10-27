@@ -7,10 +7,7 @@ package com.mycompany.veterinaria;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-/**
- *
- * @author UPS
- */
+
 public class MVenta {
  
     

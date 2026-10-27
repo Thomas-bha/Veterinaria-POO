@@ -39,12 +39,21 @@ public class CCliente
 
     private void grabarDatos() 
     {
+        modelo.setIdPersona (vista.getId());
         modelo.setCedula(vista.getCedula());
         modelo.setNombre(vista.getNombre());
+        modelo.setTelefono(vista.getTelefono());
+        modelo.setCorreo(vista.getCorreo());
+        modelo.setDireccion(vista.getDireccion());
+        
         JOptionPane.showMessageDialog(vista,"Datos guardados correctamente...", 
                                       "DATOS GRABADOS",JOptionPane.INFORMATION_MESSAGE); // 0: Alerta 1: Información
         // vista.dispose(); //  CON ESTO CIERRO LA VENTANA LUEGO DE GRABAR
-        vista.setCedula(""); // LIMPIO LOS CAMPOS LUEGO DE GRABAR
+        vista.setId(""); // LIMPIO LOS CAMPOS LUEGO DE GRABAR
+        vista.setCedula("");
         vista.setNombre("");
+        vista.setTelefono("");
+        vista.setCorreo("");
+        vista.setDireccion("");
     }
  }

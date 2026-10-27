@@ -5,8 +5,7 @@
  */
 package com.mycompany.veterinaria;
 
-/**
- * @Thomas Loor
+/*
  */
 public class MProducto {
 

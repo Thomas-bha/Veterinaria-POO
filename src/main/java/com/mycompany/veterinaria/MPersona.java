@@ -6,12 +6,11 @@
 package com.mycompany.veterinaria;
 
 /**
- *
- * @author UPS
+
  */
 public class MPersona {
 
-    private int idPersona;
+    private int Id;
     private String cedula;
     private String nombre;
     private String telefono;
@@ -26,8 +25,8 @@ public class MPersona {
     
     public MPersona(){}
     
-    public MPersona(int idPersona, String cedula, String nombre, String telefono, String correo, String direccion) {
-        this.idPersona = idPersona;
+    public MPersona(int Id, String cedula, String nombre, String telefono, String correo, String direccion) {
+        this.Id = Id;
         this.cedula = cedula;
         this.nombre = nombre;
         this.telefono = telefono;
@@ -36,11 +35,11 @@ public class MPersona {
     }
 
     public int getIdPersona() {
-        return idPersona;
+        return Id;
     }
 
     public void setIdPersona(int idPersona) {
-        this.idPersona = idPersona;
+        this.Id = Id;
     }
 
     public String getCedula() {

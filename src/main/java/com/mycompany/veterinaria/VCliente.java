@@ -6,8 +6,12 @@ import java.awt.event.ActionListener; // CLICK DE LOS BOTONES
 
 public class VCliente extends JFrame 
 {
+    private JTextField txtId = new JTextField();
     private JTextField txtCedula = new JTextField();
     private JTextField txtNombre = new JTextField();
+    private JTextField txtTelefono = new JTextField();
+    private JTextField txtCorreo = new JTextField();
+    private JTextField txtDireccion = new JTextField();
     private JButton btnGrabar = new JButton("Grabar");
     private JButton btnCerrar = new JButton("Cerrar");
 
@@ -17,7 +21,7 @@ public class VCliente extends JFrame
         super.setTitle("Ingreso Clientes"); // TITULO
         super.setSize(500, 150); // TAMAÑO
         super.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); // FUNCIONA LA X DEL FRAME
-        super.setLayout(new GridLayout(3, 2)); // DEFINO LAYOUT
+        super.setLayout(new GridLayout(0, 2)); // DEFINO LAYOUT
         super.setLocationRelativeTo(null); // CENTRADA
         
         // Agregar componentes
@@ -26,10 +30,18 @@ public class VCliente extends JFrame
         labCedula=new JLabel("Cedula:");
         add (labCedula);*/
                
-        add(new JLabel("Cédula:")); // ETIQUETA
+        add(new JLabel("Id:")); // ETIQUETA
+        add(txtId);
+        add(new JLabel("Cédula:")); 
         add(txtCedula);
         add(new JLabel("Nombre:"));
         add(txtNombre);
+        add(new JLabel("Telefono:")); 
+        add(txtTelefono);
+        add(new JLabel("Correo:"));
+        add(txtCorreo);
+        add(new JLabel("Direccion:"));
+        add(txtDireccion);
         add(btnGrabar);
         add(btnCerrar);
         
@@ -37,7 +49,11 @@ public class VCliente extends JFrame
         setVisible(true);
     }
 
-    public String getCedula() // TOMO EL VALOR DEL CAMPO CEDULA 
+    public int getId() // TOMO EL VALOR DEL CAMPO CEDULA 
+    {
+        return Integer.parseInt(txtId.getText());
+    }
+    public String getCedula() 
     {
         return txtCedula.getText();
     }
@@ -45,6 +61,24 @@ public class VCliente extends JFrame
     public String getNombre() // TOMO VALOR CAMPO NOMBRE
     {
         return txtNombre.getText();
+    }
+    public String getTelefono()
+    {
+        return txtTelefono.getText();
+    }
+    public String getCorreo()
+    {
+        return txtCorreo.getText();
+    }
+    public String getDireccion()
+    {
+        return txtDireccion.getText();
+    }
+    
+    
+    public void setId(String cad) 
+    {
+        txtId.setText(cad);
     }
     
     public void setCedula(String cad)
@@ -56,7 +90,20 @@ public class VCliente extends JFrame
     {
         txtNombre.setText(cad);
     }
+    public void setTelefono(String cad)
+    {
+        txtTelefono.setText(cad);
+    }
+    public void setCorreo(String cad)
+    {
+        txtCorreo.setText(cad);
+    }
+    public void setDireccion(String cad)
+    {
+        txtDireccion.setText(cad);
+    }
 
+    
     public void clickBotonGrabar(ActionListener listener) // ACTIVO ESCUCHADOR DEL CLICK
     {                                                               // GRABAR
         btnGrabar.addActionListener(listener);

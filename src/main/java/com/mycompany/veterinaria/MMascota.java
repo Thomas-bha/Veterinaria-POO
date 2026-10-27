@@ -12,8 +12,7 @@ import com.mycompany.veterinaria.MCliente;
 import java.time.LocalDate;
 
 /**
- *
- * @author UPS
+
  */
 public class MMascota {
     private String nombre;
