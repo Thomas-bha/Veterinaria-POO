@@ -33,7 +33,7 @@ public class MPersona {
         int suma =0;
         for(int i =0; i<9; i++){
             int digito = Character.getNumericValue(cedula.charAt(i));
-            if (1%2==0){
+            if (i%2==0){
                 digito *=2;
                 if (digito>9){
                     digito -=9;

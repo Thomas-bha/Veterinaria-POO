@@ -45,6 +45,9 @@ public class CCliente
         
         switch (resultado){
             case 0 -> {
+                
+                JOptionPane.showMessageDialog(vista,"Datos guardados correctamente...", 
+                                              "DATOS GRABADOS",JOptionPane.INFORMATION_MESSAGE); // 0: Alerta 1: Información
                 modelo.setIdPersona (vista.getId());
                 modelo.setFechaRegistro (vista.getRegistro());
                 modelo.setNombre(vista.getNombre());
@@ -52,8 +55,6 @@ public class CCliente
                 modelo.setCorreo(vista.getCorreo());
                 modelo.setDireccion(vista.getDireccion());
 
-                JOptionPane.showMessageDialog(vista,"Datos guardados correctamente...", 
-                                              "DATOS GRABADOS",JOptionPane.INFORMATION_MESSAGE); // 0: Alerta 1: Información
                 // vista.dispose(); //  CON ESTO CIERRO LA VENTANA LUEGO DE GRABAR
                 vista.setId(""); // LIMPIO LOS CAMPOS LUEGO DE GRABAR
                 vista.setRegistro("");
