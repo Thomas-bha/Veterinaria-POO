@@ -3,11 +3,13 @@ package com.mycompany.veterinaria;
 import javax.swing.*; // COMPONENTES GRAFICOS
 import java.awt.*;    // LAYOUT
 import java.awt.event.ActionListener; // CLICK DE LOS BOTONES
+import java.time.LocalDate;
 
 public class VCliente extends JFrame 
 {
     private JTextField txtId = new JTextField();
     private JTextField txtCedula = new JTextField();
+    private JTextField txtRegistro = new JTextField();
     private JTextField txtNombre = new JTextField();
     private JTextField txtTelefono = new JTextField();
     private JTextField txtCorreo = new JTextField();
@@ -21,7 +23,7 @@ public class VCliente extends JFrame
         super.setTitle("Ingreso Clientes"); // TITULO
         super.setSize(500, 150); // TAMAÑO
         super.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); // FUNCIONA LA X DEL FRAME
-        super.setLayout(new GridLayout(0, 2)); // DEFINO LAYOUT
+        super.setLayout(new GridLayout(0, 6)); // DEFINO LAYOUT
         super.setLocationRelativeTo(null); // CENTRADA
         
         // Agregar componentes
@@ -32,6 +34,8 @@ public class VCliente extends JFrame
                
         add(new JLabel("Id:")); // ETIQUETA
         add(txtId);
+        add(new JLabel("Fecha de registro:")); 
+        add(txtRegistro);
         add(new JLabel("Cédula:")); 
         add(txtCedula);
         add(new JLabel("Nombre:"));
@@ -57,6 +61,10 @@ public class VCliente extends JFrame
     {
         return txtCedula.getText();
     }
+    public LocalDate getRegistro() 
+    {
+        return LocalDate.parse(txtRegistro.getText());
+    }
 
     public String getNombre() // TOMO VALOR CAMPO NOMBRE
     {
@@ -79,6 +87,10 @@ public class VCliente extends JFrame
     public void setId(String cad) 
     {
         txtId.setText(cad);
+    }
+    public void setRegistro(String cad) 
+    {
+        txtRegistro.setText(cad);
     }
     
     public void setCedula(String cad)

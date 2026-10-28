@@ -40,6 +40,7 @@ public class CCliente
     private void grabarDatos() 
     {
         modelo.setIdPersona (vista.getId());
+        modelo.setFechaRegistro (vista.getRegistro());
         modelo.setCedula(vista.getCedula());
         modelo.setNombre(vista.getNombre());
         modelo.setTelefono(vista.getTelefono());
@@ -50,6 +51,7 @@ public class CCliente
                                       "DATOS GRABADOS",JOptionPane.INFORMATION_MESSAGE); // 0: Alerta 1: Información
         // vista.dispose(); //  CON ESTO CIERRO LA VENTANA LUEGO DE GRABAR
         vista.setId(""); // LIMPIO LOS CAMPOS LUEGO DE GRABAR
+        vista.setRegistro("");
         vista.setCedula("");
         vista.setNombre("");
         vista.setTelefono("");
