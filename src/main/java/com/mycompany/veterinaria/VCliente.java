@@ -23,7 +23,7 @@ public class VCliente extends JFrame
         super.setTitle("Ingreso Clientes"); // TITULO
         super.setSize(500, 150); // TAMAÑO
         super.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); // FUNCIONA LA X DEL FRAME
-        super.setLayout(new GridLayout(0, 6)); // DEFINO LAYOUT
+        super.setLayout(new GridLayout(0, 4)); // DEFINO LAYOUT
         super.setLocationRelativeTo(null); // CENTRADA
         
         // Agregar componentes

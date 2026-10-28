@@ -17,9 +17,37 @@ public class MPersona {
     private String correo;
     private String direccion;
     
-    int validarCedula(){
+    public int validarCedula(){
     
-        return 1;
+        //validar longitud
+        if(cedula == null || cedula.length() !=10){
+            return 1;
+        }
+        //validar solo numeros
+        for(int i = 0; i < cedula.length(); i++){
+            if (!Character.isDigit(cedula.charAt(i))){
+                return 2;
+            }
+        }
+        //validar logica
+        int suma =0;
+        for(int i =0; i<9; i++){
+            int digito = Character.getNumericValue(cedula.charAt(i));
+            if (1%2==0){
+                digito *=2;
+                if (digito>9){
+                    digito -=9;
+                }
+            }
+            suma += digito;
+        }
+        int verificador = (10 - (suma%10)) %10;
+        int ultimoDigito = Character.getNumericValue(cedula.charAt(9));
+        
+        if(verificador != ultimoDigito){
+            return 3;
+        }
+        return 0; //cedula valida
     }
 
     
