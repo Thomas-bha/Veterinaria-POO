@@ -1,6 +1,7 @@
 package com.mycompany.veterinaria;
 import java.awt.event.ActionEvent;     // PROGRAMAR EL BOTON
 import java.awt.event.ActionListener;  // ESCUCHAR EL BOTON (CLICK)
+import java.time.LocalDate;
 import javax.swing.JOptionPane;
 
 public class CCliente 
@@ -48,12 +49,15 @@ public class CCliente
                 
                 JOptionPane.showMessageDialog(vista,"Datos guardados correctamente...", 
                                               "DATOS GRABADOS",JOptionPane.INFORMATION_MESSAGE); // 0: Alerta 1: Información
+                
                 modelo.setIdPersona (vista.getId());
-                modelo.setFechaRegistro (vista.getRegistro());
+                modelo.setFechaRegistro (LocalDate.now());
                 modelo.setNombre(vista.getNombre());
                 modelo.setTelefono(vista.getTelefono());
                 modelo.setCorreo(vista.getCorreo());
                 modelo.setDireccion(vista.getDireccion());
+                
+                
 
                 // vista.dispose(); //  CON ESTO CIERRO LA VENTANA LUEGO DE GRABAR
                 vista.setId(""); // LIMPIO LOS CAMPOS LUEGO DE GRABAR
@@ -65,11 +69,11 @@ public class CCliente
                 vista.setDireccion("");
             }    
             
-            case 1 -> JOptionPane.showMessageDialog(vista,"la cedula debe tener 10 digitos", "ERROR DE VALIDACION", JOptionPane.ERROR_MESSAGE);
+            case 1 -> JOptionPane.showMessageDialog(vista,"Error 1: la cedula debe tener 10 digitos", "ERROR DE VALIDACION 1", JOptionPane.ERROR_MESSAGE);
             
-            case 2 -> JOptionPane.showMessageDialog(vista,"la cedula solo debe tener numeros", "ERROR DE VALIDACION", JOptionPane.ERROR_MESSAGE);
+            case 2 -> JOptionPane.showMessageDialog(vista,"Error 2: la cedula solo debe tener numeros", "ERROR DE VALIDACION 2", JOptionPane.ERROR_MESSAGE);
             
-            case 3 -> JOptionPane.showMessageDialog(vista,"la cedula no es valida", "ERROR DE VALIDACION", JOptionPane.ERROR_MESSAGE);
+            case 3 -> JOptionPane.showMessageDialog(vista,"Error 3: la cedula no es valida", "ERROR DE VALIDACION 3", JOptionPane.ERROR_MESSAGE);
             
             
         }

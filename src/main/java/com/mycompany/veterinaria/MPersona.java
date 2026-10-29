@@ -53,8 +53,8 @@ public class MPersona {
     
     public MPersona(){}
     
-    public MPersona(int Id, String cedula, String nombre, String telefono, String correo, String direccion) {
-        this.Id = Id;
+    public MPersona(int idPersona, String cedula, String nombre, String telefono, String correo, String direccion) {
+        this.Id = idPersona;
         this.cedula = cedula;
         this.nombre = nombre;
         this.telefono = telefono;
@@ -67,7 +67,7 @@ public class MPersona {
     }
 
     public void setIdPersona(int idPersona) {
-        this.Id = Id;
+        this.Id = idPersona;
     }
 
     public String getCedula() {
