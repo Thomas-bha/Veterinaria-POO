@@ -52,6 +52,13 @@ public class VCliente extends JFrame
         // Hacer visible la ventana
         setVisible(true);
     }
+    
+public void mostrarMensaje(int tipo, int icono, String titulo)
+    {
+        ControlErrores control = new ControlErrores();
+        String mensaje = control.getMensajeError(tipo); // OBTIENE EL TEXTO DEL ERROR
+        JOptionPane.showMessageDialog(this, mensaje, titulo, icono); // MUESTRA LA VENTANA
+    }
 
     public int getId() // TOMO EL VALOR DEL CAMPO CEDULA 
     {

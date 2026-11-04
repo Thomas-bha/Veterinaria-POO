@@ -41,42 +41,29 @@ public class CCliente
     private void grabarDatos() 
     {
         modelo.setCedula(vista.getCedula());
-        
         int resultado = modelo.validarCedula();
-        
-        switch (resultado){
-            case 0 -> {
-                
-                JOptionPane.showMessageDialog(vista,"Datos guardados correctamente...", 
-                                              "DATOS GRABADOS",JOptionPane.INFORMATION_MESSAGE); // 0: Alerta 1: Información
-                
-                modelo.setIdPersona (vista.getId());
-                modelo.setFechaRegistro (LocalDate.now());
-                modelo.setNombre(vista.getNombre());
-                modelo.setTelefono(vista.getTelefono());
-                modelo.setCorreo(vista.getCorreo());
-                modelo.setDireccion(vista.getDireccion());
-                
-                
 
-                // vista.dispose(); //  CON ESTO CIERRO LA VENTANA LUEGO DE GRABAR
-                vista.setId(""); // LIMPIO LOS CAMPOS LUEGO DE GRABAR
-                vista.setRegistro("");
-                vista.setCedula("");
-                vista.setNombre("");
-                vista.setTelefono("");
-                vista.setCorreo("");
-                vista.setDireccion("");
-            }    
-            
-            case 1 -> JOptionPane.showMessageDialog(vista,"Error 1: la cedula debe tener 10 digitos", "ERROR DE VALIDACION 1", JOptionPane.ERROR_MESSAGE);
-            
-            case 2 -> JOptionPane.showMessageDialog(vista,"Error 2: la cedula solo debe tener numeros", "ERROR DE VALIDACION 2", JOptionPane.ERROR_MESSAGE);
-            
-            case 3 -> JOptionPane.showMessageDialog(vista,"Error 3: la cedula no es valida", "ERROR DE VALIDACION 3", JOptionPane.ERROR_MESSAGE);
-            
-            
+        if (resultado == 0)
+        {
+            modelo.setNombre(vista.getNombre());
+            modelo.setDireccion(vista.getDireccion());
+            modelo.setCorreo(vista.getCorreo());
+            modelo.setTelefono(vista.getTelefono());
+            // modelo.setFechaRegistro(LocalDate.parse(vista.getFechaRegistro()));
+            // modelo.setIdPersona(Integer.parseInt(vista.getId()));
+
+            vista.mostrarMensaje(0, 1, "DATOS GRABADOS"); // 0: SIN ERROR, 1: ICONO INFORMACION
+            vista.setCedula(""); // LIMPIO LOS CAMPOS LUEGO DE GRABAR
+            vista.setNombre("");
+            vista.setDireccion("");
+            vista.setCorreo("");
+            vista.setTelefono("");
+            vista.setRegistro("");
+            vista.setId("");
+        }
+        else
+        {
+            vista.mostrarMensaje(resultado, 2, "ERROR EN CÉDULA"); // 2: ICONO ADVERTENCIA
         }
     }
-        
  }
