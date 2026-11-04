@@ -20,11 +20,16 @@ public class CCliente
             @Override // ANTICIPAR QUE SOBREESCRIBIRE UN METODO DE UNA CLASE
             public void actionPerformed(ActionEvent e) 
             {
-                // VALIDAR DATOS
                 
-                // SI ESTA TODO BIEN, PASAR LOS DATOS DE LA
-                // VISTA AL MODELO
-                grabarDatos();
+                int resultado = modelo.validarCedula(vista.getCedula());
+                
+                if(resultado ==0){
+                    vista.mostrarMensaje(resultado, "Mensaje",1);
+                    grabarDatos();
+                }else{
+                    vista.mostrarMensaje(resultado,"Mensaje",0);
+                }
+                
             }
         });
 
@@ -41,10 +46,7 @@ public class CCliente
     private void grabarDatos() 
     {
         modelo.setCedula(vista.getCedula());
-        int resultado = modelo.validarCedula();
-
-        if (resultado == 0)
-        {
+        
             modelo.setNombre(vista.getNombre());
             modelo.setDireccion(vista.getDireccion());
             modelo.setCorreo(vista.getCorreo());
@@ -52,7 +54,7 @@ public class CCliente
             // modelo.setFechaRegistro(LocalDate.parse(vista.getFechaRegistro()));
             // modelo.setIdPersona(Integer.parseInt(vista.getId()));
 
-            vista.mostrarMensaje(0, 1, "DATOS GRABADOS"); // 0: SIN ERROR, 1: ICONO INFORMACION
+
             vista.setCedula(""); // LIMPIO LOS CAMPOS LUEGO DE GRABAR
             vista.setNombre("");
             vista.setDireccion("");
@@ -60,10 +62,8 @@ public class CCliente
             vista.setTelefono("");
             vista.setRegistro("");
             vista.setId("");
-        }
-        else
-        {
-            vista.mostrarMensaje(resultado, 2, "ERROR EN CÉDULA"); // 2: ICONO ADVERTENCIA
+        
+
         }
     }
- }
+ 

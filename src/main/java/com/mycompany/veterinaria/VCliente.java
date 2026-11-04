@@ -53,13 +53,34 @@ public class VCliente extends JFrame
         setVisible(true);
     }
     
-public void mostrarMensaje(int tipo, int icono, String titulo)
-    {
-        ControlErrores control = new ControlErrores();
-        String mensaje = control.getMensajeError(tipo); // OBTIENE EL TEXTO DEL ERROR
-        JOptionPane.showMessageDialog(this, mensaje, titulo, icono); // MUESTRA LA VENTANA
-    }
 
+
+    public String mostrarMensaje(int tipo, String titulo, int icono)
+    // METODO QUE DEVUELVE UNA CADENA QUE ESPECIFICA EL ERROR
+    {
+        String mensaje = "null";
+
+        switch (tipo)
+        {
+            case 0:
+                mensaje = "Datos guardados correctamente...";
+                break;
+            case 1:
+                mensaje = "Cédula no tiene 10 dígitos";
+                break;
+            case 2:
+                mensaje = "Cédula no es numérica";
+                break;
+            case 3:
+                mensaje = "Cédula inválida";
+                break;
+            default:
+                break;
+        }
+        JOptionPane.showMessageDialog(this, mensaje, titulo, icono);
+        return mensaje;
+    }
+    
     public int getId() // TOMO EL VALOR DEL CAMPO CEDULA 
     {
         return Integer.parseInt(txtId.getText());
