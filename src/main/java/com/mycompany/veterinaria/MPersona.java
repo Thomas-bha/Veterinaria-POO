@@ -17,7 +17,7 @@ public class MPersona {
     private String correo;
     private String direccion;
     
-    public int validarCedula(){
+    public int validarCedula(String cedula){
     
         //validar longitud
         if(cedula == null || cedula.length() !=10){
