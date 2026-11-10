@@ -58,7 +58,7 @@ public class CMenuPrincipal implements ActionListener {    private VMenuPrincipa
             // INSTANCIA UNA VISTA
             VMascota vistaMascota =new VMascota();
             // INSTANCIA UN CONTROLADOR RECIBIENDO LOS DOS
-            //CMascota controladorMascota =new CMascota(modeloMascota, vistaMascota);
+            CMascota controladorMascota =new CMascota(modeloMascota, vistaMascota);
         }
                 // MENU ATENCIONES
         if (e.getSource() == vista.ingresoAtenciones) {
@@ -67,7 +67,7 @@ public class CMenuPrincipal implements ActionListener {    private VMenuPrincipa
             // INSTANCIA UNA VISTA
             VAtencionAmbulatoria vistaAtenciones =new VAtencionAmbulatoria();
             // INSTANCIA UN CONTROLADOR RECIBIENDO LOS DOS
-            //CMascota controladorMascota =new CMascota(modeloMascota, vistaMascota);
+            CAtencionAmbulatoria controladorAtenciones =new CAtencionAmbulatoria(modeloAtenciones, vistaAtenciones);
         }
         // MENU ACERCA DE...
         if (e.getSource() == vista.acercaDe) {

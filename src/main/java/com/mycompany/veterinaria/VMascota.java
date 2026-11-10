@@ -8,6 +8,7 @@ import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
@@ -18,11 +19,11 @@ public class VMascota extends JFrame {
     private final JTextField txtPeso = new JTextField();
     private final JTextField txtEspecie = new JTextField();
     private final JTextField txtFechaNacimiento = new JTextField();
+    private final JTextField txtCliente = new JTextField();
 
     private final JRadioButton rbHembra = new JRadioButton("Hembra");
     private final JRadioButton rbMacho = new JRadioButton("Macho");
-
-    private final JTextField txtCliente = new JTextField();
+    private final ButtonGroup grupoSexo = new ButtonGroup();
 
     private final JButton btnGrabar = new JButton("Grabar");
     private final JButton btnCerrar = new JButton("Cerrar");
@@ -46,7 +47,6 @@ public class VMascota extends JFrame {
 
         add(new JLabel("Sexo:"));
         JPanel panelSexo = new JPanel(new FlowLayout(FlowLayout.LEFT));
-        ButtonGroup grupoSexo = new ButtonGroup();
         grupoSexo.add(rbHembra);
         grupoSexo.add(rbMacho);
         panelSexo.add(rbHembra);
@@ -95,6 +95,10 @@ public class VMascota extends JFrame {
         return txtCliente.getText().trim();
     }
 
+    public void mostrarMensaje(String mensaje) {
+        JOptionPane.showMessageDialog(this, mensaje);
+    }
+
     public void clickBotonGrabar(ActionListener listener) {
         btnGrabar.addActionListener(listener);
     }
@@ -104,6 +108,7 @@ public class VMascota extends JFrame {
     }
 
     public static void main(String[] args) {
-        javax.swing.SwingUtilities.invokeLater(VMascota::new);
+        javax.swing.SwingUtilities.invokeLater(() ->
+                new CMascota(new MMascota(), new VMascota()));
     }
 }

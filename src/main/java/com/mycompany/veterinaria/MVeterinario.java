@@ -44,7 +44,8 @@ public class MVeterinario extends MPersona {
         this.estado = estado;
     }
     
-
+public MVeterinario() {
+}
  
 
     

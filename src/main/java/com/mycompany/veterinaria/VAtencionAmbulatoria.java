@@ -10,6 +10,7 @@ import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
@@ -19,10 +20,8 @@ public class VAtencionAmbulatoria extends JFrame {
     private final JTextField txtFecha = new JTextField();
     private final JTextField txtIdMascota = new JTextField();
     private final JTextField txtIdVeterinario = new JTextField();
-
     private final JCheckBox cbEstetica = new JCheckBox("Estética");
     private final JCheckBox cbSalud = new JCheckBox("Salud");
-
     private final JTextField txtDiagnostico = new JTextField();
     private final JTextField txtTratamiento = new JTextField();
     private final JTextField txtCosto = new JTextField();
@@ -112,6 +111,10 @@ public class VAtencionAmbulatoria extends JFrame {
         return Double.parseDouble(txtCosto.getText().trim());
     }
 
+    public void mostrarMensaje(String mensaje) {
+        JOptionPane.showMessageDialog(this, mensaje);
+    }
+
     public void clickBotonGrabar(ActionListener listener) {
         btnGrabar.addActionListener(listener);
     }
@@ -121,6 +124,10 @@ public class VAtencionAmbulatoria extends JFrame {
     }
 
     public static void main(String[] args) {
-        javax.swing.SwingUtilities.invokeLater(VAtencionAmbulatoria::new);
+        javax.swing.SwingUtilities.invokeLater(() -> {
+            MAtencionAmbulatoria modelo = new MAtencionAmbulatoria();
+            VAtencionAmbulatoria vista = new VAtencionAmbulatoria();
+            new CAtencionAmbulatoria(modelo, vista);
+        });
     }
 }
