@@ -15,6 +15,11 @@ public class CMenuPrincipal implements ActionListener {    private VMenuPrincipa
         vista.listarClientesIndividual.addActionListener(this);
         vista.listarClientesGeneral.addActionListener(this);
         vista.acercaDe.addActionListener(this);
+        
+        //Mascota
+        vista.ingresoMascota.addActionListener(this);
+        //AtencionAmbulatoria
+        vista.ingresoAtenciones.addActionListener(this);
     }
 
     public void actionPerformed(ActionEvent e) // METODO PARA IMPLEMENTAR ActionListener
@@ -46,6 +51,24 @@ public class CMenuPrincipal implements ActionListener {    private VMenuPrincipa
 
         }
 
+                // MENU MASCOTA
+        if (e.getSource() == vista.ingresoMascota) {
+            // INSTNACIA UN MODELO
+            MMascota modeloMascota = new MMascota();
+            // INSTANCIA UNA VISTA
+            VMascota vistaMascota =new VMascota();
+            // INSTANCIA UN CONTROLADOR RECIBIENDO LOS DOS
+            //CMascota controladorMascota =new CMascota(modeloMascota, vistaMascota);
+        }
+                // MENU ATENCIONES
+        if (e.getSource() == vista.ingresoAtenciones) {
+            // INSTNACIA UN MODELO
+            MAtencionAmbulatoria modeloAtenciones = new MAtencionAmbulatoria();
+            // INSTANCIA UNA VISTA
+            VAtencionAmbulatoria vistaAtenciones =new VAtencionAmbulatoria();
+            // INSTANCIA UN CONTROLADOR RECIBIENDO LOS DOS
+            //CMascota controladorMascota =new CMascota(modeloMascota, vistaMascota);
+        }
         // MENU ACERCA DE...
         if (e.getSource() == vista.acercaDe) {
             String mensajeAcercaDe = "*** Veterianaria POO ***\n"
