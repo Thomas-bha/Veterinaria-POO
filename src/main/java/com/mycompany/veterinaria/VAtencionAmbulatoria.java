@@ -67,15 +67,23 @@ public class VAtencionAmbulatoria extends JFrame {
         add(btnGrabar);
         add(btnCerrar);
 
-        setVisible(true);
+        setVisible(true); 
     }
 
     public int getIdAtencion() {
-        return Integer.parseInt(txtIdAtencion.getText().trim());
+        String id = txtIdAtencion.getText().trim();
+        if (id == null || id.isEmpty()) {
+            return 0;
+        }
+        return Integer.parseInt(id);
     }
 
     public LocalDate getFecha() {
-        return LocalDate.parse(txtFecha.getText().trim());
+        String fecha = txtFecha.getText().trim();
+        if (fecha == null || fecha.isEmpty()) {
+            return null;
+        }
+        return LocalDate.parse(fecha);
     }
 
     public String getIdMascota() {
@@ -83,7 +91,11 @@ public class VAtencionAmbulatoria extends JFrame {
     }
 
     public int getIdVeterinario() {
-        return Integer.parseInt(txtIdVeterinario.getText().trim());
+        String id = txtIdVeterinario.getText().trim();
+        if (id == null || id.isEmpty()) {
+            return 0;
+        }
+        return Integer.parseInt(id);
     }
 
     public String getMotivoConsulta() {
@@ -108,7 +120,11 @@ public class VAtencionAmbulatoria extends JFrame {
     }
 
     public double getCosto() {
-        return Double.parseDouble(txtCosto.getText().trim());
+        String costo = txtCosto.getText().trim();
+        if (costo == null || costo.isEmpty()) {
+            return 0.0;
+        }
+        return Double.parseDouble(costo);
     }
 
     public void mostrarMensaje(String mensaje) {

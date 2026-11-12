@@ -70,7 +70,11 @@ public class VMascota extends JFrame {
     }
 
     public float getPeso() {
-        return Float.parseFloat(txtPeso.getText().trim());
+        String peso = txtPeso.getText().trim();
+        if (peso == null || peso.isEmpty()) {
+            return 0f;
+        }
+        return Float.parseFloat(peso);
     }
 
     public String getEspecie() {
@@ -88,7 +92,11 @@ public class VMascota extends JFrame {
     }
 
     public LocalDate getFechaNacimiento() {
-        return LocalDate.parse(txtFechaNacimiento.getText().trim());
+        String fecha = txtFechaNacimiento.getText().trim();
+        if (fecha == null || fecha.isEmpty()) {
+            return null;
+        }
+        return LocalDate.parse(fecha);
     }
 
     public String getNombreCliente() {

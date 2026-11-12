@@ -16,6 +16,8 @@ public class CMenuPrincipal implements ActionListener {    private VMenuPrincipa
         vista.listarClientesGeneral.addActionListener(this);
         vista.acercaDe.addActionListener(this);
         
+        //Veterinarios
+        vista.ingresoVeterinarios.addActionListener(this);
         //Mascota
         vista.ingresoMascota.addActionListener(this);
         //AtencionAmbulatoria
@@ -49,6 +51,13 @@ public class CMenuPrincipal implements ActionListener {    private VMenuPrincipa
 
         if (e.getSource() == vista.listarClientesGeneral) {
 
+        }
+
+        if (e.getSource() == vista.ingresoVeterinarios) {
+            MVeterinario modeloVeterinario = new MVeterinario();
+            VVeterinario vistaVeterinario = new VVeterinario();
+            CVeterinario controladorVeterinario = new CVeterinario(modeloVeterinario, vistaVeterinario);
+            vistaVeterinario.setVisible(true);
         }
 
                 // MENU MASCOTA
