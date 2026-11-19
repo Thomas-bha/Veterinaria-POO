@@ -148,6 +148,33 @@ public class VVeterinario extends JFrame {
         JOptionPane.showMessageDialog(this, mensaje);
     }
 
+    public void mostrarMensaje(String mensaje, String titulo, int tipoMensaje) {
+        JOptionPane.showMessageDialog(this, mensaje, titulo, tipoMensaje);
+    }
+
+    public String mostrarMensaje(int tipo, String titulo, int icono) {
+        String mensaje = "null";
+
+        switch (tipo) {
+            case 0:
+                mensaje = "Datos guardados correctamente...";
+                break;
+            case 1:
+                mensaje = "Cédula no tiene 10 dígitos";
+                break;
+            case 2:
+                mensaje = "Cédula no es numérica";
+                break;
+            case 3:
+                mensaje = "Cédula inválida";
+                break;
+            default:
+                break;
+        }
+        JOptionPane.showMessageDialog(this, mensaje, titulo, icono);
+        return mensaje;
+    }
+
     public static void main(String[] args) {
         SwingUtilities.invokeLater(new Runnable() {
             @Override

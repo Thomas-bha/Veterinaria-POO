@@ -22,6 +22,8 @@ public class CMenuPrincipal implements ActionListener {    private VMenuPrincipa
         vista.ingresoMascota.addActionListener(this);
         //AtencionAmbulatoria
         vista.ingresoAtenciones.addActionListener(this);
+        //Producto
+        vista.ingresoProducto.addActionListener(this);
     }
 
     public void actionPerformed(ActionEvent e) // METODO PARA IMPLEMENTAR ActionListener
@@ -78,9 +80,14 @@ public class CMenuPrincipal implements ActionListener {    private VMenuPrincipa
             // INSTANCIA UN CONTROLADOR RECIBIENDO LOS DOS
             CAtencionAmbulatoria controladorAtenciones =new CAtencionAmbulatoria(modeloAtenciones, vistaAtenciones);
         }
+        if (e.getSource() == vista.ingresoProducto) {
+            MProducto modeloProducto = new MProducto();
+            VProducto vistaProducto = new VProducto();
+            new CProducto(modeloProducto, vistaProducto);
+        }
         // MENU ACERCA DE...
         if (e.getSource() == vista.acercaDe) {
-            String mensajeAcercaDe = "*** Veterianaria POO ***\n"
+            String mensajeAcercaDe = "*** Veterinaria POO ***\n"
                     + "Desarrollado por: Thomas Loor \n"
                     + "UPS - 2026";
             JOptionPane.showMessageDialog(vista, mensajeAcercaDe,

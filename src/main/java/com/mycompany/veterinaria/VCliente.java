@@ -80,6 +80,11 @@ public class VCliente extends JFrame
         JOptionPane.showMessageDialog(this, mensaje, titulo, icono);
         return mensaje;
     }
+
+    public void mostrarMensaje(String mensaje, String titulo, int icono)
+    {
+        JOptionPane.showMessageDialog(this, mensaje, titulo, icono);
+    }
     
     public int getId() // TOMO EL VALOR DEL CAMPO CEDULA 
     {
