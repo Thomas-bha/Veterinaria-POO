@@ -1,8 +1,6 @@
 package com.mycompany.veterinaria;
 import java.awt.event.ActionEvent;     // PROGRAMAR EL BOTON
 import java.awt.event.ActionListener;  // ESCUCHAR EL BOTON (CLICK)
-import java.time.LocalDate;
-import java.time.format.DateTimeParseException;
 import javax.swing.JOptionPane;
 
 public class CCliente 
@@ -22,33 +20,14 @@ public class CCliente
             public void actionPerformed(ActionEvent e) 
             {
                 int resultado = modelo.validarCedula(vista.getCedula());
-                boolean datosValidos = true;
                 if (resultado != 0) {
                     vista.mostrarMensaje(resultado, "Validación", JOptionPane.ERROR_MESSAGE);
-                    datosValidos = false;
+                    return;
                 }
 
-                int idPersona = 0;
-                try {
-                    idPersona = vista.getId();
-                } catch (NumberFormatException ex) {
-                    vista.mostrarMensaje("El ID debe ser un número entero", "Validación", JOptionPane.ERROR_MESSAGE);
-                    datosValidos = false;
-                }
-
-                LocalDate fechaRegistro = null;
-                try {
-                    fechaRegistro = vista.getRegistro();
-                } catch (DateTimeParseException ex) {
-                    vista.mostrarMensaje("Fecha inválida. Use el formato AAAA-MM-DD", "Validación", JOptionPane.ERROR_MESSAGE);
-                    datosValidos = false;
-                }
-
-                if (datosValidos) {
-                    grabarDatos(idPersona, fechaRegistro);
-                    vista.mostrarMensaje(0, "Mensaje", JOptionPane.INFORMATION_MESSAGE);
-                    vista.dispose();
-                }
+                grabarDatos();
+                vista.mostrarMensaje(0, "Mensaje", JOptionPane.INFORMATION_MESSAGE);
+                vista.dispose();
                 
             }
         });
@@ -63,10 +42,8 @@ public class CCliente
         });
     }
 
-    private void grabarDatos(int idPersona, LocalDate fechaRegistro)
+    private void grabarDatos()
     {
-        modelo.setIdPersona(idPersona);
-        modelo.setFechaRegistro(fechaRegistro);
         modelo.setCedula(vista.getCedula());
         
             modelo.setNombre(vista.getNombre());

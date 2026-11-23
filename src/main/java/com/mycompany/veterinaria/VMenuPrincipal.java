@@ -128,7 +128,7 @@ public class VMenuPrincipal extends JFrame {
         menuVeterinarios.add(menuListarVeterinarios);
         
         //ventas
-        menuVentas = new JMenu("ventas");
+        menuVentas = new JMenu("Ventas");
         ingresoVentas= new JMenuItem("Ingresar");
         eliminarVentas= new JMenuItem("Eliminar");
         menuListarVentas= new JMenu("Listados");

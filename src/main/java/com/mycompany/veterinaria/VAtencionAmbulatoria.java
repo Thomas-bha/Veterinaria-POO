@@ -43,10 +43,10 @@ public class VAtencionAmbulatoria extends JFrame {
         add(new JLabel("Fecha (AAAA-MM-DD):"));
         add(txtFecha);
 
-        add(new JLabel("Id Mascota:"));
+        add(new JLabel("Mascota:"));
         add(txtIdMascota);
 
-        add(new JLabel("Id Veterinario:"));
+        add(new JLabel("Veterinario:"));
         add(txtIdVeterinario);
 
         add(new JLabel("Motivo Consulta:"));

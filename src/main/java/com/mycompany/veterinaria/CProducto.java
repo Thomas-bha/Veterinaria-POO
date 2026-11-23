@@ -36,8 +36,11 @@ public class CProducto {
     }
 
     private void grabarDatos() {
-        modelo.setIdProducto(Integer.parseInt(vista.getCodigo()));
+        modelo.setIdProducto(Integer.parseInt(vista.getIdProducto()));
+        modelo.setNombre(vista.getNombre());
         modelo.setDescripcion(vista.getDescripcion());
+        modelo.setCategoria(vista.getCategoria());
+        modelo.setPrecio(Double.parseDouble(vista.getPrecio()));
         modelo.setStock(Integer.parseInt(vista.getStock()));
 
         vista.mostrarMensaje("Datos guardados correctamente",

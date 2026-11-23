@@ -28,9 +28,11 @@ public class CMascota {
     }
 
     private void grabarDatos() {
+        modelo.setIdMascota(vista.getIdMascota());
         modelo.setNombre(vista.getNombre());
         modelo.setPeso(vista.getPeso());
         modelo.setEspecie(vista.getEspecie());
+        modelo.setRaza(vista.getRaza());
         modelo.setSexo(vista.getSexo());
         modelo.setFechaNacimiento(vista.getFechaNacimiento());
 

@@ -15,46 +15,70 @@ import javax.swing.JTextField;
 
 public class VMascota extends JFrame {
 
+    private final JTextField txtIdMascota = new JTextField();
     private final JTextField txtNombre = new JTextField();
-    private final JTextField txtPeso = new JTextField();
     private final JTextField txtEspecie = new JTextField();
+    private final JTextField txtPeso = new JTextField();
     private final JTextField txtFechaNacimiento = new JTextField();
     private final JTextField txtCliente = new JTextField();
 
-    private final JRadioButton rbHembra = new JRadioButton("Hembra");
-    private final JRadioButton rbMacho = new JRadioButton("Macho");
+    private final JRadioButton rbFrench = new JRadioButton("French");
+    private final JRadioButton rbBoxer = new JRadioButton("Boxer");
+    private final JRadioButton rbDalmata = new JRadioButton("Dálmata");
+    private final JRadioButton rbOtros = new JRadioButton("Otros");
+    private final ButtonGroup grupoRaza = new ButtonGroup();
+
+    private final JRadioButton rbFemenino = new JRadioButton("Femenino");
+    private final JRadioButton rbMasculino = new JRadioButton("Masculino");
     private final ButtonGroup grupoSexo = new ButtonGroup();
 
     private final JButton btnGrabar = new JButton("Grabar");
     private final JButton btnCerrar = new JButton("Cerrar");
 
     public VMascota() {
-        super("Ingreso de mascota");
+        super("Ingreso Mascotas");
 
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        setSize(450, 300);
+        setSize(600, 450);
         setLocationRelativeTo(null);
         setLayout(new GridLayout(0, 2, 8, 8));
+
+        add(new JLabel("Id Mascota:"));
+        add(txtIdMascota);
 
         add(new JLabel("Nombre:"));
         add(txtNombre);
 
-        add(new JLabel("Peso (kg):"));
-        add(txtPeso);
-
         add(new JLabel("Especie:"));
         add(txtEspecie);
 
+        add(new JLabel("Raza:"));
+        JPanel panelRaza = new JPanel(new FlowLayout(FlowLayout.LEFT, 4, 0));
+        grupoRaza.add(rbFrench);
+        grupoRaza.add(rbBoxer);
+        grupoRaza.add(rbDalmata);
+        grupoRaza.add(rbOtros);
+        rbOtros.setSelected(true);
+        panelRaza.add(rbFrench);
+        panelRaza.add(rbBoxer);
+        panelRaza.add(rbDalmata);
+        panelRaza.add(rbOtros);
+        add(panelRaza);
+
         add(new JLabel("Sexo:"));
         JPanel panelSexo = new JPanel(new FlowLayout(FlowLayout.LEFT));
-        grupoSexo.add(rbHembra);
-        grupoSexo.add(rbMacho);
-        panelSexo.add(rbHembra);
-        panelSexo.add(rbMacho);
+        grupoSexo.add(rbFemenino);
+        grupoSexo.add(rbMasculino);
+        rbMasculino.setSelected(true);
+        panelSexo.add(rbFemenino);
+        panelSexo.add(rbMasculino);
         add(panelSexo);
 
-        add(new JLabel("Fecha de nacimiento (AAAA-MM-DD):"));
+        add(new JLabel("Fecha Nacimiento:"));
         add(txtFechaNacimiento);
+
+        add(new JLabel("Peso:"));
+        add(txtPeso);
 
         add(new JLabel("Cliente:"));
         add(txtCliente);
@@ -63,6 +87,10 @@ public class VMascota extends JFrame {
         add(btnCerrar);
 
         setVisible(true);
+    }
+
+    public String getIdMascota() {
+        return txtIdMascota.getText().trim();
     }
 
     public String getNombre() {
@@ -81,12 +109,25 @@ public class VMascota extends JFrame {
         return txtEspecie.getText().trim();
     }
 
-    public String getSexo() {
-        if (rbHembra.isSelected()) {
-            return "Hembra";
+    public String getRaza() {
+        if (rbFrench.isSelected()) {
+            return "French";
         }
-        if (rbMacho.isSelected()) {
-            return "Macho";
+        if (rbBoxer.isSelected()) {
+            return "Boxer";
+        }
+        if (rbDalmata.isSelected()) {
+            return "Dálmata";
+        }
+        return "Otros";
+    }
+
+    public String getSexo() {
+        if (rbFemenino.isSelected()) {
+            return "Femenino";
+        }
+        if (rbMasculino.isSelected()) {
+            return "Masculino";
         }
         return "";
     }

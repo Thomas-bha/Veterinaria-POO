@@ -24,35 +24,44 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 
 public class VProducto extends JFrame {
 
-    private final JTextField txtCodigo = new JTextField();
+    private final JTextField txtIdProducto = new JTextField();
+    private final JTextField txtNombre = new JTextField();
     private final JTextField txtDescripcion = new JTextField();
+    private final JTextField txtCategoria = new JTextField();
+    private final JTextField txtPrecio = new JTextField();
     private final JTextField txtStock = new JTextField();
     private final JButton btnFoto = new JButton("Foto");
     private final JButton btnGrabar = new JButton("Grabar");
     private final JButton btnCerrar = new JButton("Cerrar");
-    private final JLabel lblImagen = new JLabel("Vista previa", SwingConstants.CENTER);
+    private final JLabel lblImagen = new JLabel("Sin imagen", SwingConstants.CENTER);
 
     public VProducto() {
         super("Registro de Productos");
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setLayout(new BorderLayout(12, 12));
-        setSize(680, 420);
-        setMinimumSize(new Dimension(620, 380));
+        setSize(800, 600);
+        setMinimumSize(new Dimension(820, 620));
         setLocationRelativeTo(null);
 
-        JPanel panelCampos = new JPanel(new GridLayout(3, 2, 10, 18));
-        panelCampos.setBorder(BorderFactory.createEmptyBorder(24, 12, 24, 12));
-        panelCampos.add(new JLabel("Código:"));
-        panelCampos.add(txtCodigo);
+        JPanel panelCampos = new JPanel(new GridLayout(6, 2, 10, 10));
+        panelCampos.setBorder(BorderFactory.createEmptyBorder(12, 12, 12, 12));
+        panelCampos.add(new JLabel("ID Producto:"));
+        panelCampos.add(txtIdProducto);
+        panelCampos.add(new JLabel("Nombre:"));
+        panelCampos.add(txtNombre);
         panelCampos.add(new JLabel("Descripción:"));
         panelCampos.add(txtDescripcion);
+        panelCampos.add(new JLabel("Categoría:"));
+        panelCampos.add(txtCategoria);
+        panelCampos.add(new JLabel("Precio:"));
+        panelCampos.add(txtPrecio);
         panelCampos.add(new JLabel("Stock:"));
         panelCampos.add(txtStock);
 
         lblImagen.setOpaque(true);
         lblImagen.setBackground(Color.WHITE);
         lblImagen.setBorder(BorderFactory.createLineBorder(Color.GRAY));
-        lblImagen.setPreferredSize(new Dimension(220, 270));
+        lblImagen.setPreferredSize(new Dimension(260, 560));
 
         JPanel panelContenido = new JPanel(new BorderLayout(16, 0));
         panelContenido.setBorder(BorderFactory.createEmptyBorder(12, 12, 0, 12));
@@ -69,12 +78,24 @@ public class VProducto extends JFrame {
         setVisible(true);
     }
 
-    public String getCodigo() {
-        return txtCodigo.getText().trim();
+    public String getIdProducto() {
+        return txtIdProducto.getText().trim();
+    }
+
+    public String getNombre() {
+        return txtNombre.getText().trim();
     }
 
     public String getDescripcion() {
         return txtDescripcion.getText().trim();
+    }
+
+    public String getCategoria() {
+        return txtCategoria.getText().trim();
+    }
+
+    public String getPrecio() {
+        return txtPrecio.getText().trim();
     }
 
     public String getStock() {
