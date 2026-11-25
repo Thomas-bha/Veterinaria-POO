@@ -1,24 +1,26 @@
 package com.mycompany.veterinaria;
-import java.awt.event.ActionEvent;     // PROGRAMAR EL BOTON
-import java.awt.event.ActionListener;  // ESCUCHAR EL BOTON (CLICK)
+
+import java.awt.Component;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.time.LocalDate;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
-public class CCliente 
-{
+public class CCliente {
+
     private MCliente modelo;
     private VCliente vista;
+    private ArrayList<MCliente> listaClientes;
 
-    public CCliente (MCliente modelo, VCliente vista) 
-    {
-        this.modelo = modelo; // RECUPERO EL PARAMETRO DE ENTRADA EN EL ATRIBUTO DE LA CLASE
+    public CCliente(MCliente modelo, VCliente vista, ArrayList<MCliente> listaClientes) {
+        this.modelo = modelo;
         this.vista = vista;
+        this.listaClientes = listaClientes;
 
-        // Agregar listeners a los botones
-        this.vista.clickBotonGrabar(new ActionListener() 
-        {
-            @Override // ANTICIPAR QUE SOBREESCRIBIRE UN METODO DE UNA CLASE
-            public void actionPerformed(ActionEvent e) 
-            {
+        vista.clickBotonGrabar(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
                 int resultado = modelo.validarCedula(vista.getCedula());
                 if (resultado != 0) {
                     vista.mostrarMensaje(resultado, "Validación", JOptionPane.ERROR_MESSAGE);
@@ -28,37 +30,39 @@ public class CCliente
                 grabarDatos();
                 vista.mostrarMensaje(0, "Mensaje", JOptionPane.INFORMATION_MESSAGE);
                 vista.dispose();
-                
             }
         });
 
-        this.vista.clickBotonCerrar(new ActionListener() 
-        {
+        vista.clickBotonCerrar(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e) 
-            {
-                vista.dispose(); // CERRAR VENTANA
+            public void actionPerformed(ActionEvent e) {
+                vista.dispose();
             }
         });
     }
 
-    private void grabarDatos()
-    {
-        modelo.setCedula(vista.getCedula());
-        
-            modelo.setNombre(vista.getNombre());
-            modelo.setDireccion(vista.getDireccion());
-            modelo.setCorreo(vista.getCorreo());
-            modelo.setTelefono(vista.getTelefono());
-            vista.setCedula(""); // LIMPIO LOS CAMPOS LUEGO DE GRABAR
-            vista.setNombre("");
-            vista.setDireccion("");
-            vista.setCorreo("");
-            vista.setTelefono("");
-            vista.setRegistro("");
-            vista.setId("");
-        
-
-        }
+    public CCliente(ArrayList<MCliente> listaClientes) {
+        this.listaClientes = listaClientes;
     }
- 
+
+    public void listarClientes(Component ventanaPadre) {
+        VCliente.mostrarClientes(ventanaPadre, listaClientes);
+    }
+
+    private void grabarDatos() {
+        modelo.setCedula(vista.getCedula());
+        modelo.setNombre(vista.getNombre());
+        modelo.setDireccion(vista.getDireccion());
+        modelo.setCorreo(vista.getCorreo());
+        modelo.setTelefono(vista.getTelefono());
+        modelo.setFechaRegistro(LocalDate.now());
+        listaClientes.add(modelo);
+        vista.setCedula("");
+        vista.setNombre("");
+        vista.setDireccion("");
+        vista.setCorreo("");
+        vista.setTelefono("");
+        vista.setRegistro("");
+        vista.setId("");
+    }
+}

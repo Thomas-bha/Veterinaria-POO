@@ -4,6 +4,7 @@ import javax.swing.*; // COMPONENTES GRAFICOS
 import java.awt.*;    // LAYOUT
 import java.awt.event.ActionListener; // CLICK DE LOS BOTONES
 import java.time.LocalDate;
+import java.util.List;
 
 public class VCliente extends JFrame 
 {
@@ -84,6 +85,34 @@ public class VCliente extends JFrame
     public void mostrarMensaje(String mensaje, String titulo, int icono)
     {
         JOptionPane.showMessageDialog(this, mensaje, titulo, icono);
+    }
+
+    public static void mostrarClientes(Component ventanaPadre, List<MCliente> clientes)
+    {
+        if (clientes.isEmpty()) {
+            JOptionPane.showMessageDialog(
+                    ventanaPadre,
+                    "No existen clientes registrados",
+                    "Lista de clientes",
+                    JOptionPane.INFORMATION_MESSAGE);
+            return;
+        }
+
+        StringBuilder datos = new StringBuilder();
+        for (int i = 0; i < clientes.size(); i++) {
+            MCliente cliente = clientes.get(i);
+            datos.append("Cédula: ").append(cliente.getCedula()).append('\n');
+            datos.append("Nombre: ").append(cliente.getNombre()).append('\n');
+            datos.append("Fecha de registro: ")
+                    .append(cliente.getFechaRegistro())
+                    .append("\n----------------------\n");
+        }
+
+        JOptionPane.showMessageDialog(
+                ventanaPadre,
+                datos.toString(),
+                "Lista de clientes",
+                JOptionPane.INFORMATION_MESSAGE);
     }
     
     public int getId() // TOMO EL VALOR DEL CAMPO CEDULA 

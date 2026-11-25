@@ -2,16 +2,26 @@ package com.mycompany.veterinaria;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 public class CVeterinario {
 
     private final MVeterinario modelo;
     private final VVeterinario vista;
+    private final ArrayList<MVeterinario> listaVeterinarios;
 
     public CVeterinario(MVeterinario modelo, VVeterinario vista) {
+        this(modelo, vista, new ArrayList<MVeterinario>());
+    }
+
+    public CVeterinario(
+            MVeterinario modelo,
+            VVeterinario vista,
+            ArrayList<MVeterinario> listaVeterinarios) {
         this.modelo = modelo;
         this.vista = vista;
+        this.listaVeterinarios = listaVeterinarios;
 
         vista.clickBotonGrabar(new ActionListener() {
             @Override
@@ -57,6 +67,6 @@ public class CVeterinario {
         modelo.setEspecialidad(vista.getEspecialidad());
         modelo.setNumeroLicencia(vista.getNumeroLicencia());
         modelo.setEstado(vista.isEstado());
-
+        listaVeterinarios.add(modelo);
     }
 }

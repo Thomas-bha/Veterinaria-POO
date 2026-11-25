@@ -3,11 +3,17 @@ package com.mycompany.veterinaria;
 import javax.swing.*;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.util.ArrayList;
 
-public class CMenuPrincipal implements ActionListener {    private VMenuPrincipal vista;
+public class CMenuPrincipal implements ActionListener {
+    private VMenuPrincipal vista;
+    private ArrayList<MCliente> listaClientes;
+    private ArrayList<MVeterinario> listaVeterinarios;
 
     public CMenuPrincipal(VMenuPrincipal vista) {
         this.vista = vista;
+        listaClientes = new ArrayList<>();
+        listaVeterinarios = new ArrayList<>();
 
         vista.salir.addActionListener(this);
         vista.ingresoClientes.addActionListener(this);
@@ -18,6 +24,7 @@ public class CMenuPrincipal implements ActionListener {    private VMenuPrincipa
         
         //Veterinarios
         vista.ingresoVeterinarios.addActionListener(this);
+        vista.listarVeterinariosGeneral.addActionListener(this);
         //Mascota
         vista.ingresoMascota.addActionListener(this);
         //AtencionAmbulatoria
@@ -35,12 +42,9 @@ public class CMenuPrincipal implements ActionListener {    private VMenuPrincipa
 
         // MENU CLIENTES
         if (e.getSource() == vista.ingresoClientes) {
-            // INSTNACIA UN MODELO
             MCliente modeloCliente = new MCliente();
-            // INSTANCIA UNA VISTA
-            VCliente vistaCliente =new VCliente();
-            // INSTANCIA UN CONTROLADOR RECIBIENDO LOS DOS
-            CCliente controladorCliente =new CCliente(modeloCliente, vistaCliente);
+            VCliente vistaCliente = new VCliente();
+            new CCliente(modeloCliente, vistaCliente, listaClientes);
         }
 
         if (e.getSource() == vista.eliminarClientes) {
@@ -52,14 +56,17 @@ public class CMenuPrincipal implements ActionListener {    private VMenuPrincipa
         }
 
         if (e.getSource() == vista.listarClientesGeneral) {
-
+            new CCliente(listaClientes).listarClientes(vista);
         }
 
         if (e.getSource() == vista.ingresoVeterinarios) {
             MVeterinario modeloVeterinario = new MVeterinario();
             VVeterinario vistaVeterinario = new VVeterinario();
-            CVeterinario controladorVeterinario = new CVeterinario(modeloVeterinario, vistaVeterinario);
-            vistaVeterinario.setVisible(true);
+            new CVeterinario(modeloVeterinario, vistaVeterinario, listaVeterinarios);
+        }
+
+        if (e.getSource() == vista.listarVeterinariosGeneral) {
+            VVeterinario.mostrarVeterinarios(vista, listaVeterinarios);
         }
 
                 // MENU MASCOTA
@@ -95,4 +102,3 @@ public class CMenuPrincipal implements ActionListener {    private VMenuPrincipa
         }
 
     }}
-

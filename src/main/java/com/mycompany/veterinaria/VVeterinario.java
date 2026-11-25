@@ -3,6 +3,8 @@ package com.mycompany.veterinaria;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.awt.Component;
+import java.util.List;
 
 public class VVeterinario extends JFrame {
 
@@ -95,6 +97,35 @@ public class VVeterinario extends JFrame {
         add(panelBotones, BorderLayout.SOUTH);
         setVisible(true);
     }
+    
+    
+    public static void mostrarVeterinarios(Component ventanaPadre, List<MVeterinario> listaVeterinarios) {
+        if (listaVeterinarios.isEmpty()) {
+            JOptionPane.showMessageDialog(
+                    ventanaPadre,
+                    "No existen veterinarios registrados",
+                    "Lista de veterinarios",
+                    JOptionPane.INFORMATION_MESSAGE);
+            return;
+        }
+
+        StringBuilder datos = new StringBuilder();
+        for (int i = 0; i < listaVeterinarios.size(); i++) {
+            MVeterinario registro = listaVeterinarios.get(i);
+            datos.append("Cédula: ").append(registro.getCedula()).append('\n');
+            datos.append("Nombre: ").append(registro.getNombre()).append('\n');
+            datos.append("Especializacion: ")
+                    .append(registro.getEspecialidad())
+                    .append("\n----------------------\n");
+        }
+
+        JOptionPane.showMessageDialog(
+                ventanaPadre,
+                datos.toString(),
+                "Lista de veterinarios",
+                JOptionPane.INFORMATION_MESSAGE);
+    }
+    
 
     public int getIdPersona() {
         String texto = txtIdPersona.getText().trim();
